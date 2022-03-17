@@ -176,6 +176,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 
+
 bindsym XF86MonBrightnessUp exec xbacklight -inc 6
 bindsym XF86MonBrightnessDown exec xbacklight -dec 6
 
@@ -192,9 +193,12 @@ floating_maximum_size 800 x 600
 bar {
         status_command i3status
 }
+#exec sleep 3
+#exec xrandr --output DVI-I-2 --off
+#exec xrandr --output DVI-I-1 --mode 1600x900
+#exec xrandr --output DVI-I-2 --mode 1024x768 --pos 1600x0
 
 exec feh --bg-scale /home/alexander/images/fon.png &
 exec setxkbmap -layout 'us,ru' -option 'grp:caps_toggle'
 exec xset s off &
-exec picom --vsync --inactive-opacity=1 &
-
+#exec picom --vsync --inactive-opacity=1 &
