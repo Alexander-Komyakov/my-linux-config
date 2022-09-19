@@ -32,11 +32,11 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $refresh_i3status killall -SIGUSR1 polybar
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -141,6 +141,8 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+bindsym $mod+Control+l exec i3lock -i $HOME/images/lockscreen.png
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -183,16 +185,16 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 6
 bindsym Print exec import -window root ~/images/screenshot.jpg
 
 default_border pixel
-for_window [tiling] border pixel 0
+for_window [tiling] border pixel 1
 
-floating_minimum_size 75 x 50
-floating_maximum_size 800 x 600 
+#floating_minimum_size 75 x 50
+#floating_maximum_size 800 x 600 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-}
+#bar {
+#        status_command polybar
+#}
 #exec sleep 3
 #exec xrandr --output DVI-I-2 --off
 #exec xrandr --output DVI-I-1 --mode 1600x900
@@ -201,6 +203,10 @@ bar {
 exec feh --bg-scale /home/alexander/images/fon.png &
 exec setxkbmap -layout 'us,ru' -option 'grp:caps_toggle'
 exec xset s off &
-exec syndaemon -i 0.4 -d
+#exec syndaemon -i 0.4 -d
 exec xset dpms 0 0 0 &
+exec picom &
 #exec picom --vsync --inactive-opacity=1 &
+exec_always --no-startup-id killall polybar; polybar &
+exec xrdb -merge "$userresources" &
+exec xset r rate 200 25 &
