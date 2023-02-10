@@ -72,6 +72,8 @@ keys = [
         desc="Toggle between split and unsplit sides of stack",
     ),
     Key([mod], "Return", lazy.spawn("urxvt"), desc="Launch terminal"),
+    Key([], "Print", lazy.spawn("import -window root "+os.path.expanduser("~/images/screenshot.jpg")), desc="Spawn screenshot"),
+    Key([mod, "control"], "Return", lazy.spawn("i3lock -i "+os.path.expanduser("~/images/lockscreen.png")), desc="i3lock lockscreen"),
     # Toggle between different layouts as defined below
     Key([mod], "f", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
