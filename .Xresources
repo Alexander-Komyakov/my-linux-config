@@ -25,5 +25,5 @@ URxvt*skipScroll:	True
 URxvt*transparent:	False
 URxvt*fading:	0
 URxvt*fadeColor: black
-URxvt*font: xft:monospace:size=11,xft:monospace:size=10,xft:monospace:size=10,xft:WenQuanYi Micro Hei Mono:size=10
+URxvt*font: xft:monospace:size=10,xft:monospace:size=10,xft:monospace:size=10,xft:WenQuanYi Micro Hei Mono:size=10
 URxvt*scrollBar:	False
