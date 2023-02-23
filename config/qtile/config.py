@@ -21,8 +21,7 @@
 # FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 # AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE # SOFTWARE.
 
 import os, subprocess
 from libqtile import bar, layout, widget
@@ -48,6 +47,7 @@ keys = [
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
+	Key([mod], 'i', lazy.next_screen(), desc='Next monitor'),
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
@@ -71,7 +71,7 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn("urxvt"), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn("xfce4-terminal"), desc="Launch terminal"),
     Key([], "Print", lazy.spawn("import -window root "+os.path.expanduser("~/images/screenshot.jpg")), desc="Spawn screenshot"),
     Key([mod, "control"], "Return", lazy.spawn("i3lock -i "+os.path.expanduser("~/images/lockscreen.png")), desc="i3lock lockscreen"),
     # Toggle between different layouts as defined below
@@ -187,7 +187,7 @@ mouse = [
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: list
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
