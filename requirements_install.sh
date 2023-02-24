@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-sudo pacman -S imagemagick qtile i3lock picom xorg-setxkbmap vim xfce4-terminal git --noconfirm
+sudo pacman -S imagemagick qtile i3lock picom xorg-setxkbmap vim xfce4-terminal git parcellite --noconfirm
 
 path_to_file=$(dirname $0)
 cp $path_to_file/config/qtile/config.py ~/.config/qtile/config.py

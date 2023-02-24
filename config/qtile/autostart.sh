@@ -6,3 +6,4 @@ exec xrdb -merge "$userresources" &
 exec xset s off &
 exec xset dpms 0 0 0 &
 exec xset r rate 200 25 &
+exec parcellite &
