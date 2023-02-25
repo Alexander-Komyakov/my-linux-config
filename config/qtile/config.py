@@ -11,7 +11,7 @@ mod = "mod1"
 def autostart():
     autostart_path = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([autostart_path])
-    lazy.hide_show_bar("top")
+    top_bar.show(False)
 
 keys = [
     # Switch between windows
