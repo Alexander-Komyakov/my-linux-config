@@ -11,6 +11,7 @@ mod = "mod1"
 def autostart():
     autostart_path = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([autostart_path])
+    lazy.hide_show_bar("top")
 
 keys = [
     # Switch between windows
@@ -45,6 +46,7 @@ keys = [
     # Toggle between different layouts as defined below
     Key([mod], "t", lazy.window.toggle_fullscreen(), desc="Toogle fullscreen"),
     Key([mod], "f", lazy.next_layout(), desc="Next layout"),
+	Key([mod], "b", lazy.hide_show_bar("top")),
     Key([mod, "shift"], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "shift"], "e", lazy.shutdown(), desc="Shutdown Qtile"),
@@ -128,10 +130,17 @@ bottom_bar = bar.Bar(
 	],
 	24,
 )
+top_bar = bar.Bar(
+	[
+		widget.TaskList(padding=0),
+	],
+	20,
+)
 
 screens = [
     Screen(
 		bottom=bottom_bar,
+		top=top_bar,
         #background image
         wallpaper="/home/alexander/images/fon.jpeg",
 		wallpaper_mode="stretch",
