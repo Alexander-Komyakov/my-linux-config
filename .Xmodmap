@@ -1,0 +1,5 @@
+keycode 133 = Mode_switch
+keysym h = h H Left
+keysym j = j J Down
+keysym k = k K Up
+keysym l = l L Right

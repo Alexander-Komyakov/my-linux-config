@@ -12,6 +12,7 @@ def autostart():
     autostart_path = os.path.expanduser("~/.config/qtile/autostart.sh")
     subprocess.Popen([autostart_path])
     top_bar.show(False)
+    top_bar2.show(False)
 
 keys = [
     # Switch between windows
@@ -99,6 +100,25 @@ widget_defaults = dict(
 )
 extension_defaults = widget_defaults.copy()
 
+bottom_bar2 = bar.Bar(
+	[
+		widget.GroupBox(highlight_method='line'),
+		widget.CurrentScreen(padding=0),
+		widget.TextBox("|", foreground="#d75f5f"),
+		widget.CurrentLayout(),
+		widget.Prompt(),
+		widget.TextBox("|", foreground="#d75f5f"),
+		widget.WindowName(),
+		widget.Chord(
+			chords_colors={
+				"launch": ("#ff0000", "#ffffff"),
+			},
+			name_transform=lambda name: name.upper(),
+		),
+	],
+	24,
+)
+
 bottom_bar = bar.Bar(
 	[
 		widget.GroupBox(highlight_method='line'),
@@ -136,7 +156,12 @@ top_bar = bar.Bar(
 	],
 	20,
 )
-
+top_bar2 = bar.Bar(
+	[
+		widget.TaskList(padding=0),
+	],
+	20,
+)
 screens = [
     Screen(
 		bottom=bottom_bar,
@@ -145,6 +170,12 @@ screens = [
         wallpaper="/home/alexander/images/fon.jpeg",
 		wallpaper_mode="stretch",
     ),
+	Screen(
+		bottom=bottom_bar2,
+		top=top_bar2,
+        wallpaper="/home/alexander/images/fon2.jpeg",
+		wallpaper_mode="stretch",
+	),
 ]
 
 # Drag floating layouts.
