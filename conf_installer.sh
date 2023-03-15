@@ -10,9 +10,12 @@ cp $path_to_file/.xinitrc ~/.xinitrc
 cp $path_to_file/.Xmodmap ~/.Xmodmap
 cp $path_to_file/config/xfce4/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
 
-git clone https://aur.archlinux.org/yay-git.git && cd yay-git
-exec makepkg -si --noconfirm
-cd .. && rm -rf yay-git
+sudo pacman -Sy
+if [[! -z pacman -Qs | grep yay ]]; then
+	git clone https://aur.archlinux.org/yay-git.git && cd yay-git
+	exec makepkg -si --noconfirm
+	cd .. && rm -rf yay-git
+fi
 
 sudo pacman -S imagemagick i3lock picom\
 	xorg-setxkbmap vim xfce4-terminal git parcellite --noconfirm
