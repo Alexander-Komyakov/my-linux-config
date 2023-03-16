@@ -1,7 +1,30 @@
 #!/bin/bash
 
 
-dp_env=$1
+function help() {
+	echo "USAGE: conf_installer.sh -d [i3 OR qtile] -h"
+}
+
+
+while getopts "h?d:" ARG; do 
+	case "$ARG" in
+		d) dp_env=$OPTARG ;;
+		h) help
+		   exit 0
+		   ;;
+		:) echo "argument missing"
+		   exit 1
+		   ;;
+		\?) echo "Something is wrong"
+		   exit 1
+		   ;;
+	esac
+done
+
+shift "$((OPTIND-1))"
+
+[ "${1:-}" = "--" ] && shift
+
 path_to_file="${0%/*}"
 mkdir -p ~/.config/xfce4/terminal/
 cp "$path_to_file/.vimrc" ~/.vimrc
@@ -33,12 +56,12 @@ elif [[ "$dp_env" == "i3" ]]; then
 	cp "$path_to_file"/config/i3/config ~/.config/i3/
 	mkdir -p ~/.config/polybar
 	cp "$path_to_file"/config/polybar/config.ini ~/.config/polybar/
-	cp "$path_to_file"/config/polybar/launch.ini ~/.config/polybar/
+	cp "$path_to_file"/config/polybar/launch.sh ~/.config/polybar/
 fi
 
 
 sudo pacman -S sddm --noconfirm
-yay -S archlinux-themes-sddm --noconfirm
+yay -S archlinux-themes-sddm sddm-sugar-light --noconfirm
 echo "[Theme]
-Current=materia-dark" | sudo tee /etc/sddm.conf
+Current=sugar-light" | sudo tee /etc/sddm.conf
 sudo systemctl enable --now sddm
