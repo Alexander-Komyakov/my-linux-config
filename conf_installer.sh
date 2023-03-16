@@ -31,6 +31,7 @@ elif [[ "$dp_env" == "i3" ]]; then
 	sudo pacman -S dmenu i3-gaps feh polybar --noconfirm
 	yay -S i3lock-multimonitor --noconfirm
 	cp "$path_to_file"/config/i3/config ~/.config/i3/
+	mkdir -p ~/.config/polybar
 	cp "$path_to_file"/config/polybar/config.ini ~/.config/polybar/
 	cp "$path_to_file"/config/polybar/launch.ini ~/.config/polybar/
 fi
