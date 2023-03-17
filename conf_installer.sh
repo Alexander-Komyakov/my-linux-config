@@ -65,3 +65,4 @@ yay -S archlinux-themes-sddm sddm-sugar-light --noconfirm
 echo "[Theme]
 Current=sugar-light" | sudo tee /etc/sddm.conf
 sudo systemctl enable --now sddm
+
