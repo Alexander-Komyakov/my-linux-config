@@ -2,7 +2,7 @@
 
 
 function help() {
-	echo "USAGE: conf_installer.sh -d [i3 OR qtile] -h"
+	echo "USAGE: conf_installer.sh -d [i3 or qtile] -h"
 }
 
 
@@ -65,4 +65,3 @@ yay -S archlinux-themes-sddm sddm-sugar-light --noconfirm
 echo "[Theme]
 Current=sugar-light" | sudo tee /etc/sddm.conf
 sudo systemctl enable --now sddm
-
