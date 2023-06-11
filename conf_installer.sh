@@ -41,9 +41,9 @@ if [[ $os == "Ubuntu" ]]; then
 
 	if [[ "$dp_env" == "i3" ]]; then
 		sudo apt install rofi i3-gaps feh i3lock polybar -y
-		cp "$path_to_file"/config/i3/config ~/.config/i3/
+		cp "$path_to_file"/config/i3/config_ubuntu ~/.config/i3/
 		mkdir -p ~/.config/polybar
-		cp "$path_to_file"/config/polybar/config.ini ~/.config/polybar/
+		cp "$path_to_file"/config/polybar/config ~/.config/polybar/
 		cp "$path_to_file"/config/polybar/launch.sh ~/.config/polybar/
 	fi
 

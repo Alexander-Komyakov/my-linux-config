@@ -18,7 +18,8 @@
 
 [colors]
 background = #282A2E
-background-alt = #373B41 foreground = #C5C8C6
+background-alt = #373B41
+foreground = #C5C8C6
 primary = #F0C674
 secondary = #8ABEB7
 alert = #A54242
@@ -27,10 +28,10 @@ disabled = #707880
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 14pt
+height = 18pt
 radius = 15
 
-dpi = 120
+dpi = 100
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -51,7 +52,7 @@ separator-foreground = ${colors.disabled}
 font-0 = monospace;2
 
 modules-left = xworkspaces xwindow
-modules-right = xkeyboard date
+modules-right = filesystem pulseaudio xkeyboard memory cpu date
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -70,13 +71,15 @@ wm-restack = i3
 [bar/example2]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 14pt
+height = 18pt
 radius = 15
 
-dpi = 120
+dpi = 100
 
 background = ${colors.background}
-foreground = ${colors.foreground}
+;foreground = #373B41
+foreground = #C5C8C6
+
 
 line-size = 1pt
 
@@ -94,7 +97,7 @@ separator-foreground = ${colors.disabled}
 font-0 = monospace;2
 
 modules-left = xworkspaces xwindow
-modules-right = filesystem pulseaudio xkeyboard memory cpu wlan eth date
+modules-right = filesystem pulseaudio xkeyboard memory cpu date
 
 cursor-click = pointer
 cursor-scroll = ns-resize

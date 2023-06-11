@@ -1,14 +1,13 @@
 [Configuration]
-FontName=Liberation Mono 12
 MiscAlwaysShowTabs=FALSE
 MiscBell=FALSE
 MiscBellUrgent=FALSE
-MiscBordersDefault=FALSE
-MiscCursorBlinks=FALSE
+MiscBordersDefault=TRUE
+MiscCursorBlinks=TRUE
 MiscCursorShape=TERMINAL_CURSOR_SHAPE_BLOCK
 MiscDefaultGeometry=80x24
 MiscInheritGeometry=FALSE
-MiscMenubarDefault=FALSE
+MiscMenubarDefault=TRUE
 MiscMouseAutohide=FALSE
 MiscMouseWheelZoom=TRUE
 MiscToolbarDefault=FALSE
@@ -28,6 +27,9 @@ MiscNewTabAdjacent=FALSE
 MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=FALSE
 MiscRightClickAction=TERMINAL_RIGHT_CLICK_ACTION_CONTEXT_MENU
-ColorForeground=#ffffffffffff
-ScrollingBar=TERMINAL_SCROLLBAR_NONE
+ScrollingLines=100000
+ScrollingUnlimited=TRUE
+BackgroundMode=TERMINAL_BACKGROUND_IMAGE
+BackgroundImageShading=0,940000
+ColorForeground=#f6f6f5f5f4f4
 
